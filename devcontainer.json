@@ -1,0 +1,13 @@
+{
+  "name": "OpenCode",
+  "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+  "postCreateCommand": "curl -fsSL https://opencode.ai/install | bash",
+  "postStartCommand": "export PATH=$HOME/.opencode/bin:$PATH && nohup opencode web --port 4096 --hostname 0.0.0.0 > /tmp/opencode.log 2>&1 &",
+  "forwardPorts": [4096],
+  "portsAttributes": {
+    "4096": {
+      "label": "OpenCode",
+      "onAutoForward": "openBrowser"
+    }
+  }
+}
